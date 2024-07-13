@@ -87,6 +87,46 @@ cd github-tutorial</code></pre>
             </ol>
         </section>
 
+         <section id="comments">
+            <h2>Comments</h2>
+            <form id="comment-form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="comment">Comment:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+                
+                <input type="submit" value="Submit">
+            </form>
+
+            <h3>Previous Comments:</h3>
+            <div id="comment-section">
+                <!-- Comments will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GitHub Tutorial. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            
+            const commentSection = document.getElementById('comment-section');
+            const newComment = document.createElement('div');
+            
+            newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+            commentSection.appendChild(newComment);
+            
+            document.getElementById('comment-form').reset();
+        });
+    </script>
+
         <section id="license">
             <h2>License</h2>
             <p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
